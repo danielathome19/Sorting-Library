@@ -9,7 +9,7 @@ All sorting methods are kept within the __Sorts.java__ file. All currently imple
 The __SortingTest.java__ file contains working tests for all sorting methods including elapsed time.
 
 # Bugs/Features
-Bugs are tracked using the Github Issue Tracker.
+Bugs are tracked using the GitHub Issue Tracker.
 
 Please use the issue tracker for the following purpose:
   * To raise a bug request; do include specific details and label it appropriately.
