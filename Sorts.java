@@ -8,6 +8,34 @@ public class Sorts<T extends Comparable<T>> {
         items[indexTwo] = temp;
     }
 
+    private int partitionArray(int left, int right, T pivot, T[] items) {
+        int leftPointer = left - 1;
+        int rightPointer = right;
+
+        while (true) {
+            while (items[++leftPointer].compareTo(pivot) == -1);
+            while (rightPointer > 0 && items[--rightPointer].compareTo(pivot) == 1);
+
+            if (leftPointer >= rightPointer) break;
+            else swapValues(leftPointer, rightPointer, items);
+        }
+
+        swapValues(leftPointer, right, items);
+        return leftPointer;
+    }
+
+    private void quickSort(int left, int right, T[] items) {
+        if (right - left <= 0)  {
+            return;
+        } else {
+            T pivot = items[right];
+            int pivotLocation = partitionArray(left, right, pivot, items);
+
+            quickSort(left, pivotLocation - 1, items);
+            quickSort(pivotLocation + 1, right, items);
+        }
+    }
+
     public void bubbleSort(T[] items) {
         for (int i = items.length - 1; i > 1; i--) {
             for (int j = 0; j < i; j++) {
@@ -40,6 +68,10 @@ public class Sorts<T extends Comparable<T>> {
             }
             items[j] = toInsert;
         }
+    }
+
+    public void quickSort(T[] items) {
+        quickSort(0, items.length - 1, items);
     }
 
 }
