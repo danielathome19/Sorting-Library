@@ -78,5 +78,19 @@ public class SortingTest {
         printArray(items);
         System.out.println("Elapsed time [Quick Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
         System.out.println();
+
+        // Merge Sort
+        populateArray(items);
+        System.out.println("Old Array: ");
+        printArray(items);
+
+        oldTime = System.nanoTime();
+        sorts.mergeSort(items);
+        newTime = System.nanoTime();
+
+        System.out.println("New Array: ");
+        printArray(items);
+        System.out.println("Elapsed time [Quick Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
+        System.out.println();
     }
 }
