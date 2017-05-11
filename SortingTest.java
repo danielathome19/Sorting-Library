@@ -18,12 +18,19 @@ public class SortingTest {
         System.out.println();
     }
 
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         Integer[] items = new Integer[500];
-        Sorts sorts = new Sorts();
 
-        // Bubble Sort
+        bubbleSortTest(items);
+        selectionSortTest(items);
+        insertionSortTest(items);
+        quickSortTest(items);
+        mergeSortTest(items);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void bubbleSortTest(Integer[] items) {
+        Sorts sorts = new Sorts();
         populateArray(items);
         System.out.println("Old Array: ");
         printArray(items);
@@ -36,61 +43,73 @@ public class SortingTest {
         printArray(items);
         System.out.println("Elapsed time [Bubble Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
         System.out.println();
+    }
 
-        // Selection Sort
+    @SuppressWarnings("unchecked")
+    public static void selectionSortTest(Integer[] items) {
+        Sorts sorts = new Sorts();
         populateArray(items);
         System.out.println("Old Array: ");
         printArray(items);
 
-        oldTime = System.nanoTime();
+        long oldTime = System.nanoTime();
         sorts.selectionSort(items);
-        newTime = System.nanoTime();
+        long newTime = System.nanoTime();
 
         System.out.println("New Array: ");
         printArray(items);
         System.out.println("Elapsed time [Selection Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
         System.out.println();
+    }
 
-        // Insertion Sort
+    @SuppressWarnings("unchecked")
+    public static void insertionSortTest(Integer[] items) {
+        Sorts sorts = new Sorts();
         populateArray(items);
         System.out.println("Old Array: ");
         printArray(items);
 
-        oldTime = System.nanoTime();
+        long oldTime = System.nanoTime();
         sorts.insertionSort(items);
-        newTime = System.nanoTime();
+        long newTime = System.nanoTime();
 
         System.out.println("New Array: ");
         printArray(items);
         System.out.println("Elapsed time [Insertion Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
         System.out.println();
+    }
 
-        // Quick Sort
+    @SuppressWarnings("unchecked")
+    public static void quickSortTest(Integer[] items) {
+        Sorts sorts = new Sorts();
         populateArray(items);
         System.out.println("Old Array: ");
         printArray(items);
 
-        oldTime = System.nanoTime();
+        long oldTime = System.nanoTime();
         sorts.quickSort(items);
-        newTime = System.nanoTime();
+        long newTime = System.nanoTime();
 
         System.out.println("New Array: ");
         printArray(items);
         System.out.println("Elapsed time [Quick Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
         System.out.println();
+    }
 
-        // Merge Sort
+    @SuppressWarnings("unchecked")
+    public static void mergeSortTest(Integer[] items) {
+        Sorts sorts = new Sorts();
         populateArray(items);
         System.out.println("Old Array: ");
         printArray(items);
 
-        oldTime = System.nanoTime();
+        long oldTime = System.nanoTime();
         sorts.mergeSort(items);
-        newTime = System.nanoTime();
+        long newTime = System.nanoTime();
 
         System.out.println("New Array: ");
         printArray(items);
-        System.out.println("Elapsed time [Quick Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
+        System.out.println("Elapsed time [Merge Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
         System.out.println();
     }
 }
