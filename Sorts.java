@@ -1,3 +1,16 @@
+/*
+ * Author:  Daniel Szelogowski
+ * Created: 5/10/17
+ * Purpose: A collection of sorting methods in java.
+ *
+ * Currently implemented:
+ *  -Bubble Sort
+ *  -Selection Sort
+ *  -Insertion Sort
+ *  -Quick Sort
+ *
+ **************************************************************************/
+
 package Sorting;
 
 public class Sorts<T extends Comparable<T>> {
