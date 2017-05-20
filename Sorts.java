@@ -9,9 +9,9 @@
  *  -Insertion Sort
  *  -Quick Sort
  *  -Merge Sort
+ *  -Heap Sort
  *
  * To do:
- *  -Heap Sort
  *  -Shell Sort
  *  -Radix Sort (LSD)
  *  -Radix Sort (MSD)
@@ -22,6 +22,57 @@
 package Sorting;
 
 public class Sorts<T extends Comparable<T>> {
+    private static class HeapSort {
+        private static Comparable[] a;
+        private static int n;
+        private static int left;
+        private static int right;
+        private static int largest;
+
+        private static void buildheap(Comparable[] a){
+            n = a.length - 1;
+            for (int i = n/2; i >= 0; i--) {
+                maxheap(a, i);
+            }
+        }
+
+        @SuppressWarnings("unchecked")
+        private static void maxheap(Comparable[] a, int i){
+            left = 2 * i;
+            right = 2 * i + 1;
+            if(left <= n && a[left].compareTo(a[i]) > 0) {
+                largest = left;
+            } else {
+                largest = i;
+            }
+
+            if(right <= n && a[right].compareTo(a[largest]) > 0){
+                largest = right;
+            }
+
+            if(largest != i){
+                exchange(i, largest);
+                maxheap(a, largest);
+            }
+        }
+
+        private static void exchange(int i, int j){
+            Comparable t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+        }
+
+        public static void sort(Comparable[] array){
+            a = array;
+            buildheap(a);
+
+            for (int i = n; i > 0; i--) {
+                exchange(0, i);
+                n = n - 1;
+                maxheap(a, 0);
+            }
+        }
+    }
 
     private void swapValues(int indexOne, int indexTwo, T[] items) {
         T temp = items[indexOne];
@@ -140,5 +191,9 @@ public class Sorts<T extends Comparable<T>> {
     void mergeSort(T[] items) {
         T[] sorted = mergeSort(items, 0, items.length - 1);
         System.arraycopy(sorted, 0, items, 0, sorted.length);
+    }
+
+    void heapSort(T[] items) {
+        HeapSort.sort(items);
     }
 }
