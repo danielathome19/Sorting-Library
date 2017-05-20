@@ -26,6 +26,7 @@ public class SortingTest {
         insertionSortTest(items);
         quickSortTest(items);
         mergeSortTest(items);
+        heapSortTest(items);
     }
 
     @SuppressWarnings("unchecked")
@@ -110,6 +111,23 @@ public class SortingTest {
         System.out.println("New Array: ");
         printArray(items);
         System.out.println("Elapsed time [Merge Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
+        System.out.println();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void heapSortTest(Integer[] items) {
+        Sorts sorts = new Sorts();
+        populateArray(items);
+        System.out.println("Old Array: ");
+        printArray(items);
+
+        long oldTime = System.nanoTime();
+        sorts.heapSort(items);
+        long newTime = System.nanoTime();
+
+        System.out.println("New Array: ");
+        printArray(items);
+        System.out.println("Elapsed time [Heap Sort]: " + TimeUnit.MILLISECONDS.convert(newTime - oldTime, TimeUnit.NANOSECONDS) + "ms");
         System.out.println();
     }
 }
